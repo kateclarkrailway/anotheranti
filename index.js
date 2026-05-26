@@ -14,7 +14,7 @@ const client = new Client({
 // ─── CONFIG ───────────────────────────────────────────────────────────────────
 const config = {
   TOKEN: process.env.TOKEN,                    // set this in your environment variables
-  CLIENT_ID: 'YOUR_CLIENT_ID_HERE',            // paste your Application ID here
+  CLIENT_ID: '1508976918140026930',            // paste your Application ID here
 
   // Role given when someone is quarantined
   QUAR_ROLE_ID: '1508968420933370017',
