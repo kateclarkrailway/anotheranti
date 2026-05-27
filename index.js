@@ -46,7 +46,6 @@ function isImmune(member) {
   if (!member) return false;
   if (whitelist.has(member.id)) return true;
   if (member.roles.cache.has(config.IMMUNE_ROLE_ID)) return true;
-  if (member.permissions.has(PermissionsBitField.Flags.Administrator)) return true;
   return false;
 }
 
@@ -174,8 +173,8 @@ client.on('interactionCreate', async (interaction) => {
 
   const { commandName, guild, member } = interaction;
 
-  // Only allow admins or immune roles to use these commands
-  if (!member.permissions.has(PermissionsBitField.Flags.Administrator) && !member.roles.cache.has(config.IMMUNE_ROLE_ID)) {
+  // Only allow users with the immune role to use these commands
+  if (!member.roles.cache.has(config.IMMUNE_ROLE_ID)) {
     return interaction.reply({ content: '❌ You don\'t have permission to use this command.', ephemeral: true });
   }
 
